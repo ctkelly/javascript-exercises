@@ -1,6 +1,6 @@
 
 function randomNum() {
-  const number = Math.floor(Math.random() * 10);
+  const number = Math.floor(Math.random() * 1000);
   return number
 } 
 
