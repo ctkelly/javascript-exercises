@@ -18,7 +18,7 @@ function randomNum() {
     newString +=string;
     }
     return newString;
-    }
+    } 
     } 
 
 
