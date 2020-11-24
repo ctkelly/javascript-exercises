@@ -1,30 +1,23 @@
-const removeFromArray = function() {
-
-}
-
-/* Try without using forEach()
-
 const removeFromArray = function(array, ...toRemove) {
-    let testArray = [the array to be passed in];
     let newArray = [];
     for (let i = 0; i < array.length; i++) {
-        if (testArray[i] !== toRemove) {
-            newArray.push(item);
+        if (toRemove.indexOf(array[i]) === -1) {
+            newArray.push(array[i]);
         }
-        return newArray;
     }
+    return newArray;
 }
-*/
 
-/* Try with forEach()
-    
+/* Another way:
+
 const removeFromArray = function(array, ...toRemove) {
-    let testArray = [the array to be passed in];
     let newArray = [];
-    forEach(element in array), check, starting from [0] {
-        if element === toRemove, then ignore that element and move on to check the next element;
-        if element !== toRemove, then newArray.push(), then move on to next element;
+    function checkAndPush(element) {
+        if (toRemove.indexOf(element) === -1) {
+            newArray.push(element);
+        }
     }
+    array.forEach(checkAndPush);
     return newArray;
 }
 */
