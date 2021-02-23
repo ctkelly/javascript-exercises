@@ -1,13 +1,16 @@
 const caesar = function(string, shiftValue) {
   
+  //Split letters of the alphabet into array elements
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
+  //Split letters of the string into array elements
   let strToEncrypt = string.split('');
   
+  //Convert negative shift values to positive
   while (shiftValue < 0) {
     shiftValue += 26;
   }
-
+  //Function to change position of each character and also retain case
   function encrypt(character) {
 
     if (alphabet.includes(character.toLowerCase())) {
@@ -22,48 +25,10 @@ const caesar = function(string, shiftValue) {
   
   }
 
+  //Join characters to create encrypted string
   let encryptedString = strToEncrypt.map(character => encrypt(character)).join('');
   return encryptedString;
 
 } 
-
-
-
-/*const caesar = function(string, shiftValue) {
-  
-  const alphabet = [
-      'A', 'B', 'C', 'D', 'E', 'F',
-      'G', 'H', 'I', 'J', 'K', 'L',
-      'M', 'N', 'O', 'P', 'Q', 'R',
-      'S', 'T', 'U', 'V', 'W', 'X',
-      'Y', 'Z'
-    ];
-
-  //const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split(); NO, USE THE OTHER ONE  
-
-  let strToEncrypt = string.split('');
-  
-  while (shiftValue < 0) {
-    shiftValue += 26;
-  }
-
-  function encrypt(character) {
-
-    if (alphabet.includes(character.toUpperCase())) {
-      let position = alphabet.indexOf(character.toUpperCase());
-      let newPosition = (position + shiftValue) % 26;
-      return alphabet[newPosition];
-
-    } else {
-      return character;
-    }
-  }
-
-  let encryptedString = strToEncrypt.map(character => encrypt(character)).join('');
-  return encryptedString;
-
-}*/ 
-
-
 
 module.exports = caesar
